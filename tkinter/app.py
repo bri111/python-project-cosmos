@@ -3,7 +3,7 @@ from tkinter import ttk
 
 # Create the main window
 root = tk.Tk()
-root.title("Compact Toolbar Design with Functional Buttons")
+root.title("COSMOS")
 
 # Set dark theme background and text colors
 dark_bg = "#2E2E2E"
