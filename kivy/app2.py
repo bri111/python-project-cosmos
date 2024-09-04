@@ -21,38 +21,12 @@ class MyApp(App):
         # Create a horizontal BoxLayout for the header
         header_layout = BoxLayout(orientation='horizontal', padding=10, spacing=10, size_hint_y=None, height=50)
 
-        # Add label and text input fields, and make them resizable
-        fields = ['UTC', 'MOC', 'MET', 'SLT', 'MJD']
-        for field in fields:
-            label = Label(text=field, size_hint=(None, None), size=(40, 30))
-            header_layout.add_widget(label)
-            text_input = TextInput(size_hint_x=0.1, height=30)  # Resize based on the available space
-            header_layout.add_widget(text_input)
-
-        # Add the dropdown for 'Mode' and ensure it resizes properly
-        mode_label = Label(text="Mode", size_hint_x=0.05, height=30)  # Mode label with size_hint_x=0.15
-        header_layout.add_widget(mode_label)
-        mode_spinner = Spinner(text='Choose', values=('Option 1', 'Option 2'), size_hint_x=0.10, height=20)
-        header_layout.add_widget(mode_spinner)
-
-        # Add an empty widget with size_hint_x=0.05 for spacing on the right
-        header_layout.add_widget(Widget(size_hint_x=0.05))
-
-        # Add buttons to the same header row, making them resizable
-        buttons = ['Log Review', 'Log Entry', 'Log In', 'Log Out', 'B/G Monitor']
-        for button_text in buttons:
-            button = Button(text=button_text, size_hint_x=0.1, height=30)  # Ensure buttons resize based on space
-            header_layout.add_widget(button)
-
-        # Add the header layout to the top of the outer layout
-        outer_layout.add_widget(header_layout)
-
         # Add another BoxLayout for the data table
-        table_box = BoxLayout(orientation='vertical', size_hint=(1, 0.8), padding=10)
+        table_box = BoxLayout(orientation='vertical', padding=10, size_hint=(1, 0.8))
 
         # Load the CSV data into a pandas DataFrame (example file path, adjust as needed)
         try:
-            df = pd.read_csv('../sample_data.csv')
+            df = pd.read_csv('sample_data.csv')
         except Exception as e:
             print(f"Error loading CSV: {e}")
             return outer_layout
